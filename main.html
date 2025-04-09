@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Form Submission Alert</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h2>User Information Form</h2>
+  <form id="userForm">
+    <label>
+      First Name:
+      <input type="text" name="First Name" required />
+    </label>
+    <br /><br />
+    <label>
+      Last Name:
+      <input type="text" name="Last Name" required />
+    </label>
+    <br /><br />
+    <label>
+      Phone Number:
+      <input type="tel" name="Phone Number" required />
+    </label>
+    <br /><br />
+    <label>
+      Email ID:
+      <input type="email" name="Email ID" required />
+    </label>
+    <br /><br />
+    <button type="submit">Submit</button>
+  </form>
 
+  <script>
+    const form = document.getElementById("userForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent page reload
+
+      // Extract values using the name attributes
+      const firstName = form.elements["First Name"].value;
+      const lastName = form.elements["Last Name"].value;
+      const phone = form.elements["Phone Number"].value;
+      const email = form.elements["Email ID"].value;
+
+      // Construct the alert message
+      const message = `First Name: ${firstName} Last Name: ${lastName} Phone Number: ${phone} Email ID: ${email}`;
+
+      alert(message);
+    });
+  </script>
 </body>
-
 </html>
